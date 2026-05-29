@@ -18,6 +18,9 @@ const stationPingsMs = {
     Log a network diagnostic statement for each entry using a template literal:
     "Connection to [stationKey] latency is: [ping value]ms."
 */
+for (let stationKey in stationPingsMs){
+    let statusValue = 
+}
 
 /** EXERCISE 2: WEAPONS INVENTORY VERIFICATION **/
 
@@ -26,6 +29,16 @@ const pdcAmmoLocker = {
 	bayTwoRails: 150,
 	bridgeDefenses: 0,
 };
+let pdcAmmoLockerKeys = Object.keys(pdcAmmoLocker);
+
+for (const key of pdcAmmoLockerKeys){
+    let value = pdcAmmoLocker[key]
+    if(key === 0){
+        console.log(`CRITICAL DEPLETION:${key} ammo
+    is completely empty`)
+    }
+}
+console.log(pdcAmmoLockerKeys);
 
 /*
     TODO: Use 'Object.keys()' to extract an array of all keys from 'pdcAmmoLocker'.

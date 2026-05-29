@@ -14,6 +14,19 @@
     3. Recursive Case: Calculate the remaining hours by calling the function 
        again with the new velocity. Then, RETURN 1 + that recursive result.
 */
+function calculateHoursToDecay(currentVelocity, threshold) {
+   // Base Case
+   if (currentVelocity <= threshold) {
+      return 0;
+   }
+   // Action
+   let newVelocity = currentVelocity * 0.9;
+   // Recursive Case
+   return 1 + calculateHoursToDecay(newVelocity, threshold);
+}
 
 // TODO: Starting at 80 km/h, count the hours until it hits 50 km/h,
 // then print a sentence with that total to the console.
+let hours = calculateHoursToDecay(80, 50);
+
+console.log("It took " + hours + " hours to decay below 50 km/h");

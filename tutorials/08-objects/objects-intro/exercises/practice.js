@@ -14,11 +14,17 @@
     - rank (String)
     - flightHours (Number)
     - isActive (Boolean)
-
     Assign values to each of the four properties.
     
     Log the object to the console.
 */
+const pilotProfile = {
+    name: "Paul",
+    rank: "Beginer",
+    flighHours: 25,
+    isActive: false,
+};
+console.log(pilotProfile);
 
 /** EXERCISE 2: MATERIAL CONFIGURATION **/
 
@@ -27,6 +33,11 @@
     - made of a material that is a titanium alloy
     - has a thickness of 15 centimeters
 */
+const hullSpecs = {
+    material: "titanium alloy",
+    thicknes: 15
+};
+console.log(hullSpecs);
 
 /** EXERCISE 3: REFERENCE CLONING CHECK **/
 
@@ -41,3 +52,5 @@ const shadowCore = originalCore;
 */
 // shadowCore.stabilityScore = 45;
 // console.log(`Original Core Stability: ${originalCore.stabilityScore}`);
+shadowCore.stabilityScore = 45;
+console.log(`Original Core Stability: ${originalCore.stabilityScore}`);

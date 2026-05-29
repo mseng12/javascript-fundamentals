@@ -15,6 +15,8 @@ let fineAdjustmentVector = -14.62;
     Then, pass that absolute value into 'Math.round' to find the nearest integer.
     Store the final result in a constant named 'CLEAN_STEERING_ANGLE' and log it.
 */
+const CLEAN_STEERING_ANGLE = Math.round(Math.abs(fineAdjustmentVector));
+console.log(`Correcting trajectory alignment lock by: ${CLEAN_STEERING_ANGLE}°`);
 
 /** EXERCISE 2: SECTOR RANGE SCANNER **/
 
@@ -25,6 +27,8 @@ const cargoBayTemperatures = [18, 22, 14, 31, 19, 25];
     out of the 'cargoBayTemperatures' array. 
     Store it in a variable named 'highestTemp' and log it using a template literal.
 */
+let highestTemp = Math.max(...cargoBayTemperatures);
+console.log(`Climate control warning: Thermal maximum reached at ${highestTemp}°C.`);
 
 /** EXERCISE 3: FUEL POD BALANCER **/
 
@@ -35,3 +39,9 @@ const fuelPodWeights = [450, 412, 498, 380];
     Subtract that lowest weight value from the highest possible capacity constant (500).
     Log how many metric tons are needed to top off that emptiest tank.
 */
+let emptiestPodWeight = Math.min(...fuelPodWeights);
+let structuralRefillDeficit = 500 - emptiestPodWeight;
+
+console.log(
+	`Pod refueling deficit: Tank requires ${structuralRefillDeficit}t to reach standard capacity limits.`
+);

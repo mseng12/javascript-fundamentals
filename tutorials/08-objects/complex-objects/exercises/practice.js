@@ -19,6 +19,9 @@ const stationHub = {
     TODO: Use a template literal to log: 
     "Security at [stationName] is enforced by [governingBody]. Maintenance active at [second dock entry]."
 */
+console.log(
+	`Security at ${stationHub.stationName} is enforced by ${stationHub.logistics.governingBody}. Maintenance active at ${stationHub.logistics.docks[1]}.`
+);
 
 /** EXERCISE 2: SHALLOW CLONE VERIFICATION **/
 
@@ -28,14 +31,14 @@ const originalThrusterData = {
 };
 
 // TODO: Create a shallow copy of 'originalThrusterData' named 'clonedThrusterData' using the spread operator.
-
+const clonedThrusterData = { ...originalThrusterData };
 // TODO: Update 'clonedThrusterData.readouts.corePsi' to 500.
-
+clonedThrusterData.readouts.corePsi = 500;
 /*
     TODO: Predict what originalThrusterData.readouts.corePsi will log.
     Uncomment the line below to check.
 */
-
+console.log(`Original System Core PSI: ${originalThrusterData.readouts.corePsi}`);
 /** EXERCISE 3: LOGISTICS ENVELOPE DUPLICATION **/
 
 const secureVault = {
@@ -49,3 +52,8 @@ const secureVault = {
     Push a new code string ("NEBULA") onto the deep copy's 'clearanceCodes' array.
     Log both arrays to verify they are completely decoupled.
 */
+const deepVaultClone = JSON.parse(JSON.stringify(secureVault));
+deepVaultClone.clearanceCodes.push("NEBULA");
+
+console.log(`Original Clearance Keyring: ${secureVault.clearanceCodes}`); // X-RAY,ORION
+console.log(`Deep Copy Clearance Keyring: ${deepVaultClone.clearanceCodes}`); // X-RAY,ORION,NEBULA

@@ -21,6 +21,15 @@ formatHeader("Fleet Status Sweep (for...of)", false);
 // DEMO: Loop over the array of ship objects.
 //  - If the vessel is active,print a report with their payload.
 //  - If it is undergoing maintenance,print a report stating that instead.
+for (let vessel of sectorFleet) {
+		if (vessel.status === "Active") {
+		console.log (`Vessel ${vessel.name} is on active patrol. Currnt payload: ${vessel.cargoWeight}t.`);
+	}
+
+	} else {
+		console.log (`Notice: ${vessel.name}is Offline. Skipping tactical PerformanceResourceTiming.`);
+	}
+};
 
 /** EXAMPLE 2 - TOTAL LOGISTICS CALCULATION **/
 
@@ -29,9 +38,13 @@ formatHeader("Aggregating Total Cargo Mass (Standard for)", false);
 let totalSectorTonnage = 0;
 
 // DEMO: Loop over the array to calculate combined total
+for (let vessel of sectorFleet) {
+	totalSectorTonnage += vessel.cargWeight;
+
+}
 
 // DEMO: Log a report on the total tonnage
-
+console.log ("Combined payload")
 // DEMO: Make a git commit!
 
 /* 

@@ -19,7 +19,11 @@ const atmosphericScrubbers = [
     If it is, log a warning statement using a template literal:
     "MAINTENANCE REQ: [zone] filter core is critically low at [filterLifePercent]%!"
 */
-
+for (let scrubber of atmosphericScrubbers) {
+    if (scrubber.filterLifePercent < 40 ) {
+        console.log(`MAINTENANCE REQ: ${scrubber.zone} filter core is critically low at ${scrubber.filterLifePercent}%!`)
+    } else {console.log(`All Good`);}
+}
 /** EXERCISE 2: INTEL METRIC REPORTING **/
 
 const targetDrones = [
@@ -37,3 +41,10 @@ const targetDrones = [
     3. Divide that total sum by 'targetDrones.length' after the loop concludes.
     4. Log the final value using a template literal: "Target grid composite average threat rating: [average]"
 */
+
+let sum = 0;
+for (let i = 0; i < targetDrones.length; i++){sum += targetDrones[i].threatScore;}
+let average = sum / targetDrones.length;
+console.log(`Target grid composite average threat rating: ${average}`)
+ 
+

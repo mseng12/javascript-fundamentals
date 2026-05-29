@@ -21,6 +21,8 @@ const communicationArray = {
     object above using a new key named 'broadcast'. 
     Then, execute the method from the object.
 */
+communicationArray.broadcast = transmitMessage;
+communicationArray.broadcast();
 
 /** EXERCISE 2: CORE HEALTH CALCULATOR **/
 
@@ -37,8 +39,12 @@ const engineeringDriveCore = {
             Return a template literal reading: 
             "The [coreName] has [margin]°C remaining before structural failure."
         */
+	   let thermalMargin = this.maxSafeTemperature - this.currentTemperature;
+		return `The ${this.coreName} has ${thermalMargin}°C remaining before structural failure.`;
 	},
 };
+
+console.log(engineeringDriveCore.checkThermalSafety());
 
 // TODO: Test the method by calling it on the object.
 
@@ -57,7 +63,20 @@ const fuelPod = {
             - If it fits: add the amount to 'this.currentReserveTons' and log the success.
             Use template literals for both logs.
         */
+	   if (this.currentReserveTons + amount > this.maxCapacityTons) {
+			console.log(
+				`Refuel Aborted: Cannot exceed total volume capacity on ${this.podIdentifier}.`
+			);
+		} else {
+			this.currentReserveTons += amount;
+			console.log(
+				`Success: ${this.podIdentifier} reserve level increased to ${this.currentReserveTons}t.`
+			);
+		}
 	},
 };
 
 // TODO: Test the method with a value that should fail, then again with one that should succeed.
+
+fuelPod.addFuel(400); // Should fail (120 + 400 = 520 > 500)
+fuelPod.addFuel(200); // Should succeed (120 + 200 = 320 <= 500)
