@@ -10,9 +10,13 @@
 // This is our Higher-Order Function (The Manager)
 function processCargoManifest(weightInTons, processingWorker) {
 	let internalTaxRate = 0.05;
+
 	// TODO: Execute the processingWorker callback, passing it both
+        return processingWorker(weightInTons, internalTaxRate);
 	// 'weightInTons' and 'internalTaxRate' and return its result
 }
+
+
 
 /*
     TODO: Invoke 'processCargoManifest'. Pass it the weight 500, and a truly anonymous 
@@ -20,6 +24,13 @@ function processCargoManifest(weightInTons, processingWorker) {
     The contractor should take 'weight', and 'tax', and return the calculation: weight * tax.
     Log the final returned result.
 */
+
+const result = processCargoManifest(
+    500,
+    (weight, tax) => weight * tax
+);
+
+console.log(result);
 
 /** EXERCISE 2: INTERCEPT TRACER FACTORY **/
 
@@ -30,6 +41,10 @@ function generateWeaponLauncher(weaponType) {
         The returned function should accept a 'quantity' parameter and return 
         a template literal reading: "Firing [quantity] [weaponType] projectiles!"
     */
+   return (quantity) => {
+    return `Firing ${quantity} ${weaponType} projectiles!`;
+   };
+
 }
 
 // Manufacturing the weapon instances
@@ -37,3 +52,5 @@ const firePdcRailgun = generateWeaponLauncher("PDC Railgun");
 const fireTorpedo = generateWeaponLauncher("Plasma Torpedo");
 
 // TODO: Execute both manufactured functions to test them, logging their output.
+console.log(firePdcRailgun(50));
+console.log(fireTorpedo(12));
