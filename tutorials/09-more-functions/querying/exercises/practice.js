@@ -14,6 +14,9 @@ const reactorTemperatures = [2100, 2850, 3100, 1950, 3400];
     value that exceeds the structural safety limits of 3000°C.
     Capture it in a variable named 'criticalTemp' and log it.
 */
+const criticalTemp = reactorTemperatures.find((temp) => temp > 3000);
+
+console.log(criticalTemp);
 
 /** EXERCISE 2: TRACKING COOLDOWN SCHEDULERS **/
 
@@ -28,6 +31,11 @@ const lifeSupportSystems = [
     of the system module experiencing a structural output drop below 20%.
     Capture the matching index number inside a constant named 'failedSystemIndex' and log it.
 */
+const failedSystemIndex = lifeSupportSystems.findIndex((system) => {
+    return system.oxygenOutputPercent < 20;
+});
+
+console.log(failedSystemIndex);
 
 /** EXERCISE 3: COMBAT READINESS AUDIT **/
 
@@ -44,3 +52,8 @@ const gunshipMunitionsLocker = [
     as 'readyToFire: true'.
     Store the sub-array results in a constant named 'activeFireBays' and log it to the terminal.
 */
+const activeFireBays = gunshipMunitionsLocker.filter((bay) => {
+    return bay.missileCount > 0 && bay.readyToFire === true;
+});
+
+console.log(activeFireBays);
