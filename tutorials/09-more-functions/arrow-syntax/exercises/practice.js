@@ -8,9 +8,12 @@
 /** EXERCISE 1: COLLAPSING TRAJECTORY CONVERSIONS **/
 
 // Traditional Target Configuration:
-function knotsToMach(knots) {
-	return knots * 0.0015;
-}
+//function knotsToMach(knots) {
+//	return knots * 0.0015;
+//}
+
+const convertKnotsToMach = knots => knots * 0.0015;
+console.log( ` 500 knots equals ${convertKnotsToMach(500)} Mach`);
 
 /*
     TODO: Refactor the traditional 'knotsToMach' function above into a modern, 
@@ -22,9 +25,15 @@ function knotsToMach(knots) {
 /** EXERCISE 2: THRESHOLD OVERRIDE MATRIX **/
 
 // Traditional Target Configuration:
-function verifyShieldThreshold(currentEnergy, safeLimit) {
-	return currentEnergy >= safeLimit;
-}
+//function verifyShieldThreshold(currentEnergy, safeLimit) {
+//	return currentEnergy >= safeLimit;
+//}
+
+const isShieldSafe = (currentEnergy, safeLimit) => {
+    return currentEnergy >= safeLimit;
+};
+
+console.log(`Shield status: ${isShieldSafe(120, 100)}`);
 
 /*
     TODO: Refactor the 'verifyShieldThreshold' function into a block-body arrow function 
@@ -40,9 +49,17 @@ function verifyShieldThreshold(currentEnergy, safeLimit) {
     Fix the code sequence so that it executes cleanly without throwing errors, 
     keeping the modern arrow syntax intact.
 */
-let systemAlert = formatRadioPacket("mcrn-roci", "DRIVE INITIALIZED");
+//let systemAlert = formatRadioPacket("mcrn-roci", "DRIVE INITIALIZED");
+
+//const formatRadioPacket = (callsign, status) =>
+//	`[${callsign.toUpperCase()}] status update: ${status.toLowerCase()}`;
+//
+//console.log(systemAlert);
 
 const formatRadioPacket = (callsign, status) =>
-	`[${callsign.toUpperCase()}] status update: ${status.toLowerCase()}`;
+    `[${callsign.toUpperCase()}] status update: ${status.toLowerCase()}`;
+
+let systemAlert = formatRadioPacket("mcr-roi", "DRIVE INITIALIZED");
 
 console.log(systemAlert);
+
